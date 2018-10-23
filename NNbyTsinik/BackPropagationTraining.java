@@ -187,11 +187,11 @@ public class BackPropagationTraining extends Thread {
 			String[] values = line.split(" ");
 			int count = 0;
 			for (int j = 0; j < inputData[i].length; j++) {
-				inputData[i][j] = Integer.parseInt(values[count]);
+				inputData[i][j] = Float.parseFloat(values[count]);
 				count++;
 			}
 			for (int j = 0; j < outputData[i].length; j++) {
-				outputData[i][j] = Integer.parseInt(values[count]);
+				outputData[i][j] = Float.parseFloat(values[count]);
 				count++;
 			}
 		}

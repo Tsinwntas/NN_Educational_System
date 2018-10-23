@@ -2,7 +2,6 @@
 public class NNTesting {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int option = 1;
 		switch(option) {
 		case 0:

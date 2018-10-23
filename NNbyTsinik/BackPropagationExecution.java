@@ -130,7 +130,7 @@ public class BackPropagationExecution extends Thread {
 			String[] values = line.split(" ");
 			int count = 0;
 			for (int j = 0; j < inputData[i].length; j++) {
-				inputData[i][j] = Integer.parseInt(values[count]);
+				inputData[i][j] = Float.parseFloat(values[count]);
 				count++;
 			}
 		}
@@ -192,8 +192,8 @@ public class BackPropagationExecution extends Thread {
 		Scanner in = new Scanner(new File(weightsFile));
 		String line[];
 		for (int i = 0; i < (numInputNeurons + 1); i++) {
+			line = in.nextLine().split(" ");
 			for (int j = 0; j < numHiddenLayerOneNeurons; j++) {
-				line = in.nextLine().split(" ");
 				weightsLayerOne[i][j] = Float.parseFloat(line[j]);
 			}
 		}

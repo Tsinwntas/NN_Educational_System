@@ -1,5 +1,5 @@
-numHiddenLayerOneNeurons 4
-numHiddenLayerTwoNeurons 0
+numHiddenLayerOneNeurons 10
+numHiddenLayerTwoNeurons 10
 numInputNeurons 2
 numOutputNeurons 1
 inputFile input.txt

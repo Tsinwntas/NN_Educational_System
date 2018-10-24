@@ -25,6 +25,12 @@ public class BackPropagationTraining extends Thread {
 	static String weightsFile;
 	public static int currentIteration = 0;	
 	public static int maxIterations;
+	
+	public static String toShow ="";
+	
+	public static float[][] weightsToLayer1;
+	public static float[][] weightsToLayer2;
+	public static float[][] weightsToOutput;
 
 	public BackPropagationTraining(String params) {
 		paramsFileName = params;
@@ -421,6 +427,9 @@ public class BackPropagationTraining extends Thread {
 						weightsLayerTwo, weightsOutLayer, lastweightsLayerOne, lastweightsLayerTwo,
 						lastweightsOutLayer);
 			}
+			weightsToLayer1 = weightsLayerOne.clone();
+			weightsToLayer2 = weightsLayerTwo.clone();
+			weightsToOutput = weightsOutLayer.clone();
 //			float trainingRate = (float) (1.0 * totalCorrect / totalChecked);
 //			totalChecked = 0;
 //			totalCorrect = 0;
@@ -440,6 +449,8 @@ public class BackPropagationTraining extends Thread {
 
 			writer.write((currentIteration + 1) + "\t\t" + String.format("%.5g", (trainingError / 4)) + "\t\t"
 					+ String.format("%.5g", (testingError / 4)) + "\n");
+			toShow = "Gen "+(currentIteration + 1) + " of "+ maxIterations+" | TrainingError: "+ String.format("%.5g", (trainingError / 4)) + " | TestingError: "
+					+ String.format("%.5g", (testingError / 4));
 //			 writerSuccess.write((c + 1) + "\t\t" + String.format("%.5g", trainingRate) +
 //			"\t\t\t"
 //			 + String.format("%.5g", testingRate) + "\n");

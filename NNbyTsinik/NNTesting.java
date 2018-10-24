@@ -2,10 +2,10 @@
 public class NNTesting {
 
 	public static void main(String[] args) {
-		int option = 1;
+		int option = 0;
 		switch(option) {
 		case 0:
-		BackPropagationTraining bp = new BackPropagationTraining("parameters.txt");
+		BackPropagationTraining bp = new BackPropagationTraining("parameters/trainingParams.txt");
 		bp.start();break;
 		case 1:
 			BackPropagationExecution be = new BackPropagationExecution("parameters2.txt");

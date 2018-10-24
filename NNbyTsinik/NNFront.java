@@ -188,7 +188,7 @@ public class NNFront {
 		JButton btnNewButton = new JButton("TRAIN");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				new NNTrainingDialog(fullPath);
 			}
 		});
 		btnNewButton.setBounds(69, 568, 123, 46);

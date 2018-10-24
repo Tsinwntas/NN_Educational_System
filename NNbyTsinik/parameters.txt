@@ -1,10 +1,10 @@
 numHiddenLayerOneNeurons 10
-numHiddenLayerTwoNeurons 10
+numHiddenLayerTwoNeurons 20
 numInputNeurons 2
 numOutputNeurons 1
 learningRate 0.3
 momentum 0.2
-maxIterations 10000
+maxIterations 15000
 trainFile training.txt
 testFile test.txt
 usePreviousWeights 0

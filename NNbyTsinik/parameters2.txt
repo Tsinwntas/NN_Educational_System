@@ -1,7 +1,0 @@
-numHiddenLayerOneNeurons 10
-numHiddenLayerTwoNeurons 20
-numInputNeurons 2
-numOutputNeurons 1
-inputFile input.txt
-usePreviousWeights 1
-weightsFile weights.txt

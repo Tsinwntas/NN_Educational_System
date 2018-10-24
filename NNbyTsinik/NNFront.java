@@ -186,17 +186,22 @@ public class NNFront {
 		params[i++] = label_20;
 
 		JButton btnNewButton = new JButton("TRAIN");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		btnNewButton.setBounds(69, 568, 123, 46);
 		frame.getContentPane().add(btnNewButton);
 
-		JButton button = new JButton("USE");
-		button.addActionListener(new ActionListener() {
+		JButton btnExec = new JButton("EXEC");
+		btnExec.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new NNExecuteDialog(fullPath);
 			}
 		});
-		button.setBounds(281, 568, 123, 46);
-		frame.getContentPane().add(button);
+		btnExec.setBounds(281, 568, 123, 46);
+		frame.getContentPane().add(btnExec);
 
 		textField = new JTextField();
 		textField.setBounds(28, 26, 351, 20);

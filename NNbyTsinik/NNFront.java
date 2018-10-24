@@ -2,8 +2,11 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -128,57 +131,57 @@ public class NNFront {
 		params[i++] = label_9;
 
 		JLabel label_10 = new JLabel("");
-		label_10.setBounds(321, 25, 190, 31);
+		label_10.setBounds(300, 25, 190, 31);
 		panel.add(label_10);
 		params[i++] = label_10;
 
 		JLabel label_11 = new JLabel("");
-		label_11.setBounds(321, 67, 190, 31);
+		label_11.setBounds(300, 67, 190, 31);
 		panel.add(label_11);
 		params[i++] = label_11;
 
 		JLabel label_12 = new JLabel("");
-		label_12.setBounds(321, 109, 190, 31);
+		label_12.setBounds(300, 109, 190, 31);
 		panel.add(label_12);
 		params[i++] = label_12;
 
 		JLabel label_13 = new JLabel("");
-		label_13.setBounds(321, 151, 190, 31);
+		label_13.setBounds(300, 151, 190, 31);
 		panel.add(label_13);
 		params[i++] = label_13;
 
 		JLabel label_14 = new JLabel("");
-		label_14.setBounds(321, 193, 190, 31);
+		label_14.setBounds(300, 193, 190, 31);
 		panel.add(label_14);
 		params[i++] = label_14;
 
 		JLabel label_15 = new JLabel("");
-		label_15.setBounds(321, 235, 190, 31);
+		label_15.setBounds(300, 235, 190, 31);
 		panel.add(label_15);
 		params[i++] = label_15;
 
 		JLabel label_16 = new JLabel("");
-		label_16.setBounds(321, 277, 190, 31);
+		label_16.setBounds(300, 277, 190, 31);
 		panel.add(label_16);
 		params[i++] = label_16;
 
 		JLabel label_17 = new JLabel("");
-		label_17.setBounds(321, 319, 190, 31);
+		label_17.setBounds(300, 319, 190, 31);
 		panel.add(label_17);
 		params[i++] = label_17;
 
 		JLabel label_18 = new JLabel("");
-		label_18.setBounds(321, 361, 190, 31);
+		label_18.setBounds(300, 361, 190, 31);
 		panel.add(label_18);
 		params[i++] = label_18;
 
 		JLabel label_19 = new JLabel("");
-		label_19.setBounds(321, 403, 190, 31);
+		label_19.setBounds(300, 403, 190, 31);
 		panel.add(label_19);
 		params[i++] = label_19;
 
 		JLabel label_20 = new JLabel("");
-		label_20.setBounds(321, 445, 190, 31);
+		label_20.setBounds(300, 445, 190, 31);
 		panel.add(label_20);
 		params[i++] = label_20;
 
@@ -199,6 +202,7 @@ public class NNFront {
 		textField.setBounds(28, 26, 351, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		textField.setEditable(false);
 
 		JButton button_1 = new JButton("...");
 		button_1.setBounds(389, 25, 31, 23);
@@ -216,13 +220,26 @@ public class NNFront {
 					// This is where a real application would open the file.
 					parametersFile = file.getName();
 					fullPath = file.getAbsolutePath();
-					textField.setText(fullPath);
+					textField.setText(parametersFile);
+					fc.setCurrentDirectory(new File(fullPath));
 					try {
 						load();
+						log();
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				}
+			}
+
+			private void log() {
+				try {
+					BufferedWriter writer = new BufferedWriter(new FileWriter("last.dll"));
+					writer.write(parametersFile+"\n"+fullPath);
+					writer.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 
@@ -246,6 +263,22 @@ public class NNFront {
 				}				
 			}
 		});
+		getLastUsed();
+	}
+
+	private void getLastUsed() {
+		try {
+			Scanner in = new Scanner (new File("last.dll"));
+			parametersFile = in.nextLine();
+			fullPath = in.nextLine();
+
+			textField.setText(parametersFile);
+			load();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			parametersFile = "";
+			fullPath ="";
+		}
 	}
 
 	private Icon resizeIcon(ImageIcon icon, int resizedWidth, int resizedHeight) {

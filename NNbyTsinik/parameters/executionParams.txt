@@ -1,0 +1,7 @@
+numHiddenLayerOneNeurons 10
+numHiddenLayerTwoNeurons 20
+numInputNeurons 2
+numOutputNeurons 1
+inputFile inputs/input.txt
+usePreviousWeights 1
+weightsFile weights/weights.txt

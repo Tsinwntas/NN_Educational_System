@@ -133,7 +133,6 @@ public class NNTrainingDialog extends JDialog {
 			private Color getWeightsColor(float f) {
 				float toSet = Math.abs(f);
 				toSet = Math.min(toSet/4*255,255);
-				System.out.println(Math.round(toSet));
 				if(f >= 0)
 					return new Color(0,0,Math.round(toSet));
 				else return new Color(Math.round(toSet),0,0);

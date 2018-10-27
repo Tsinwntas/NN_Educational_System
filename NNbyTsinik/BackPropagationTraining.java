@@ -457,7 +457,7 @@ public class BackPropagationTraining extends Thread {
 		}
 		writer.close();
 //		 writerSuccess.close();
-		writer = new BufferedWriter(new FileWriter("weights.txt"));
+		writer = new BufferedWriter(new FileWriter(weightsFile));
 		for (int i = 0; i <= numInputNeurons; i++) {
 			for (int j = 0; j < numHiddenLayerOneNeurons; j++) {
 				if (j > 0)
